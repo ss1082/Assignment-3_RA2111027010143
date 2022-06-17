@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <limits.h>
+void max_min(int arr[], int *small, int *large, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] < *small)
+            *small = arr[i];
+        if (arr[i] > *large)
+            *large = arr[i];
+    }
+}
+int main()
+{
+    int arr[100];
+    printf("Enter number of elements : ");
+    int n = 0;
+    scanf("%d", &n);
+    printf("Enter the elements of array : \n");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    int small = INT_MAX, large = INT_MIN;
+    max_min(arr, &small, &large, n);
+    printf("%d %d\n", small, large);
+    return 0;
+}
